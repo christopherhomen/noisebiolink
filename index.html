@@ -172,8 +172,11 @@
         .link-item:hover {
             background: var(--card-hover);
             transform: translateY(-3px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            /* Fallback border color if variable not set */
+            border-color: var(--brand-color, rgba(255, 255, 255, 0.2));
+            /* Neon glow effect */
+            box-shadow: 0 0 15px var(--brand-color, rgba(255, 255, 255, 0.1)),
+                inset 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .link-item:active {
@@ -187,6 +190,12 @@
             justify-content: center;
             margin-right: 1rem;
             color: #fff;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .link-item:hover .link-icon {
+            color: var(--brand-color);
+            text-shadow: 0 0 10px var(--brand-color);
         }
 
         .link-text {
@@ -207,7 +216,22 @@
             transform: translateX(3px);
         }
 
-        /* Social Row (Optional - for smaller icons at bottom if needed, but user asked for list) */
+        /* Brand Colors & Neon Effects */
+        .link-website {
+            --brand-color: #ffffff;
+        }
+
+        .link-whatsapp {
+            --brand-color: #25D366;
+        }
+
+        .link-instagram {
+            --brand-color: #E1306C;
+        }
+
+        .link-tiktok {
+            --brand-color: #00f2ea;
+        }
 
         /* Footer */
         .footer {
@@ -310,25 +334,25 @@
         </header>
 
         <div class="links-list">
-            <a href="https://noise-six.vercel.app/" class="link-item" target="_blank">
+            <a href="https://noise-six.vercel.app/" class="link-item link-website" target="_blank">
                 <div class="link-icon"><i class="fas fa-globe"></i></div>
                 <span class="link-text">Sitio Web Oficial</span>
                 <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
             </a>
 
-            <a href="https://wa.me/573224039667" class="link-item" target="_blank">
+            <a href="https://wa.me/573224039667" class="link-item link-whatsapp" target="_blank">
                 <div class="link-icon"><i class="fab fa-whatsapp"></i></div>
                 <span class="link-text">WhatsApp</span>
                 <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
             </a>
 
-            <a href="https://instagram.com/noiseclcl" class="link-item" target="_blank">
+            <a href="https://instagram.com/noiseclcl" class="link-item link-instagram" target="_blank">
                 <div class="link-icon"><i class="fab fa-instagram"></i></div>
                 <span class="link-text">Instagram</span>
                 <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
             </a>
 
-            <a href="https://tiktok.com/@noiseclcl" class="link-item" target="_blank">
+            <a href="https://tiktok.com/@noiseclcl" class="link-item link-tiktok" target="_blank">
                 <div class="link-icon"><i class="fab fa-tiktok"></i></div>
                 <span class="link-text">TikTok</span>
                 <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
